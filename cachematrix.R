@@ -1,6 +1,7 @@
 ## Assignment 2 - Inverse Matrix in cache.
 
-## This function generates a matrix to be stored in cache.
+## This function (makeCacheMatrix) generates a matrix to be 
+## stored in cache.
 
 makeCacheMatrix <- function(x = matrix()) {
         invM <- NULL
@@ -16,9 +17,10 @@ makeCacheMatrix <- function(x = matrix()) {
              getinvM=getinvM)
 }
 
-## This function computes the inverse of the matrix and stores 
-## it in cache, and if it is not the first time you run it, it
-## is returned from the cache.
+## This function (cacheSolve) computes the inverse of the matrix 
+## and stores it in cache, and if the matrix is not changed and 
+## if it is not the first time you run it, it is returned from 
+## the cache (it shows the message "Getting cached data").
 
 cacheSolve <- function(x, ...) {
         invM <- x$getinvM()
@@ -31,4 +33,9 @@ cacheSolve <- function(x, ...) {
         x$setinvM(invM)
         print(invM)
 }
-## Return a matrix that is the inverse of 'x'
+## Returns a matrix that is the inverse of 'x'
+
+## * Example to run it: 
+##     f <- matrix(rnorm(64,10,3),8,8)
+##     a <- makeCacheMatrix(f)
+##     cacheSolve(a)
